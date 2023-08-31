@@ -47,7 +47,7 @@ namespace RPG.Control
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit)
             {
-                GetComponent<Mover>().MoveTo(hit.point);
+                GetComponent<Mover>().StartMoveAction(hit.point);
             }
             else
             {
