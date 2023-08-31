@@ -1,6 +1,6 @@
+using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;
-using RPG.Combat;
 
 namespace RPG.Control
 {
@@ -10,17 +10,17 @@ namespace RPG.Control
         // Update is called once per frame
         void Update()
         {
-            InteractWithCombat();
+            if (InteractWithCombat()) return;
             InteractWithMovement();
         }
 
-        private void InteractWithCombat()
+        private bool InteractWithCombat()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.collider.GetComponent<CombatTarget>();
-                if (target==null)
+                if (target == null)
                 {
                     continue;
                 }
@@ -28,7 +28,9 @@ namespace RPG.Control
                 {
                     GetComponent<Fighter>().Attack(target);
                 }
+                return true;
             }
+            return false;
         }
 
         private void InteractWithMovement()
@@ -46,6 +48,11 @@ namespace RPG.Control
             if (hasHit)
             {
                 GetComponent<Mover>().MoveTo(hit.point);
+            }
+            else
+            {
+                Debug.Log("End of the world.");
+                return;
             }
         }
 

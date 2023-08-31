@@ -6,7 +6,14 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour
     {
 
-        [SerializeField] private Transform target;
+        [SerializeField] Transform target;
+
+        NavMeshAgent agent;
+
+        private void Start()
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
 
         // Update is called once per frame
         void Update()
@@ -17,12 +24,17 @@ namespace RPG.Movement
 
         public void MoveTo(Vector3 destination)
         {
-            GetComponent<NavMeshAgent>().destination = destination;
+            agent.destination = destination;
+            agent.isStopped = false;
+        }
+        public void Stop()
+        {
+            agent.isStopped = true;
         }
 
         private void UpdateAnimator()
         {
-            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+            Vector3 velocity = agent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("ForwardMoveSpeed", speed);
