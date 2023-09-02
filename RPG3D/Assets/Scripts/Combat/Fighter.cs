@@ -1,18 +1,22 @@
-using RPG.Movement;
 using RPG.Core;
+using RPG.Movement;
 using UnityEngine;
-using UnityEngine.Animations;
-using System;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour,IAction
+    public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float weaponRange = 2f;
+        [SerializeField] float timeBetweenAttacks = 2f;
+
+        float timeSinceLastAttack = 0f;
+
         Transform target;
 
         private void Update()
         {
+            timeSinceLastAttack += Time.deltaTime;
+
             if (target == null) { return; }
             if (!GetIsInRange())
             {
@@ -21,14 +25,18 @@ namespace RPG.Combat
             else
             {
                 GetComponent<Mover>().Cancel();
-                AttackBehaviour();
+                AttackBehavior();
             }
 
         }
 
-        private void AttackBehaviour()
+        private void AttackBehavior()
         {
-            GetComponent<Animator>().SetTrigger("attack");
+            if (timeSinceLastAttack > timeBetweenAttacks)
+            {
+                GetComponent<Animator>().SetTrigger("attack");
+                timeSinceLastAttack = 0f;
+            }
         }
 
         private bool GetIsInRange()
