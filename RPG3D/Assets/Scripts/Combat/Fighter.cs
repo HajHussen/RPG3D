@@ -19,7 +19,11 @@ namespace RPG.Combat
             timeSinceLastAttack += Time.deltaTime;
 
             if (target == null) { return; }
-            if (target.IsDead()) { return; }
+            if (target.IsDead())
+            {
+                target.GetComponent<Collider>().enabled = false;
+                return;
+            }
             if (!GetIsInRange())
             {
                 GetComponent<Mover>().MoveTo(target.transform.position);
@@ -37,7 +41,7 @@ namespace RPG.Combat
             transform.LookAt(target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
-                GetComponent<Animator>().SetTrigger("attack");
+                TriggerAttackAnim();
                 timeSinceLastAttack = 0f;
             }
         }
@@ -45,6 +49,7 @@ namespace RPG.Combat
         // animation event
         void Hit()
         {
+            if (target == null) return;
             target.TakeDamage(weaponDamage);
         }
 
@@ -61,8 +66,19 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            GetComponent<Animator>().SetTrigger("cancelAttack");
+            TriggerStopAttackAnim();
             target = null;
+        }
+        private void TriggerAttackAnim()
+        {
+            GetComponent<Animator>().ResetTrigger("cancelAttack");
+            GetComponent<Animator>().SetTrigger("attack");
+        }
+
+        private void TriggerStopAttackAnim()
+        {
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("cancelAttack");
         }
     }
 }
