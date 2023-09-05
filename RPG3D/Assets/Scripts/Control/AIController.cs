@@ -1,4 +1,5 @@
 using UnityEngine;
+using RPG.Combat;
 
 namespace RPG.Control
 {
@@ -6,17 +7,29 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
+
         GameObject player;
+        Fighter fighter;
 
         private void Start()
         {
             player = GameObject.FindWithTag("Player");
+            fighter = GetComponent<Fighter>();
         }
         void Update()
         {
+            if (player.GetComponent<Health>().IsDead())
+            {
+                return;
+            }
+
+            if (!GetIsInChaseRange())
+            {
+                fighter.Cancel();
+            }
             if (GetIsInChaseRange())
             {
-                print($"{gameObject.name} is chasing Player!");
+               fighter.Attack(player);
             }
         }
         private bool GetIsInChaseRange()
