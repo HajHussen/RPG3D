@@ -73,6 +73,7 @@ namespace RPG.Combat
             TriggerStopAttackAnim();
             target = null;
         }
+
         private void TriggerAttackAnim()
         {
             GetComponent<Animator>().ResetTrigger("cancelAttack");
