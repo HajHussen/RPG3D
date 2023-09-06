@@ -10,7 +10,7 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] float timeBetweenAttacks = 2f;
 
-        float timeSinceLastAttack = 0f;
+        float timeSinceLastAttack = Mathf.Infinity;
 
         Health target;
 
@@ -21,7 +21,11 @@ namespace RPG.Combat
             if (target == null) { return; }
             if (target.IsDead())
             {
-                target.GetComponent<Collider>().enabled = false;
+                if (target.GetComponent<Collider>())
+                {
+                    target.GetComponent<Collider>().enabled = false;
+                }
+
                 return;
             }
             if (!GetIsInRange())
