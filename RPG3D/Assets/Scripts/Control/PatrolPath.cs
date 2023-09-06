@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace RPG.Control
@@ -7,10 +6,28 @@ namespace RPG.Control
     {
         private void OnDrawGizmos()
         {
-            for (int i = 0;i<transform.childCount;i++)
+            for (int i = 0; i < transform.childCount; i++)
             {
-                Gizmos.DrawSphere(transform.GetChild(i).position, .5f);
+                int j = GetNextWaypoint(i);
+                Gizmos.DrawSphere(GetWaypoint(i), .3f);
+                Gizmos.DrawLine(GetWaypoint(i), GetWaypoint(j));
             }
+        }
+
+        private int GetNextWaypoint(int i)
+        {
+            int j = i + 1;
+            if (j == transform.childCount)
+            {
+                j = 0;
+            }
+
+            return j;
+        }
+
+        private Vector3 GetWaypoint(int i)
+        {
+            return transform.GetChild(i).position;
         }
     }
 }
