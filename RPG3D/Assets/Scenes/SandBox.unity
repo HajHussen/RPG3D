@@ -574,6 +574,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6202739121843412131, guid: c0f2778fc7882834aa09f405c63827c5, type: 3}
+      propertyPath: PatrolPath
+      value: 
+      objectReference: {fileID: 8110101413884412914}
+    - target: {fileID: -6202739121843412131, guid: c0f2778fc7882834aa09f405c63827c5, type: 3}
       propertyPath: suspiciousTime
       value: 20
       objectReference: {fileID: 0}
@@ -1190,3 +1194,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7095943827731327002, guid: b5b2db0139816a24f9961e6435b4e155, type: 3}
   m_PrefabInstance: {fileID: 8110101413884412912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8110101413884412914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3781035403525358709, guid: b5b2db0139816a24f9961e6435b4e155, type: 3}
+  m_PrefabInstance: {fileID: 8110101413884412912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca4168185d9f0d44a5753402b6d0645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
