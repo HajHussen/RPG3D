@@ -1,8 +1,8 @@
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
-using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -10,7 +10,9 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
+        [SerializeField] float chaseSpeed = 4.6f;
         [SerializeField] float suspicionTime = 5f;
+        [SerializeField] float patrolSpeed = 2f;
         [SerializeField] float waypointDwellingTime = 5f;
         [SerializeField] float waypointTolerance = 1f;
 
@@ -58,11 +60,14 @@ namespace RPG.Control
             if (GetIsInChaseRange())
             {
                 timeSinceLastSawPlayer = 0;
+                gameObject.GetComponent<NavMeshAgent>().speed = chaseSpeed;
                 AttackBehavior();
             }
             else if (timeSinceLastSawPlayer < suspicionTime)
             {
                 GetComponent<ActionScheduler>().CancelCurrentAction();
+                gameObject.GetComponent<NavMeshAgent>().speed = patrolSpeed;
+
             }
 
             else
@@ -78,9 +83,9 @@ namespace RPG.Control
                     }
                     nextPosition = GetCurrentWaypoint();
                 }
-                if (timeSinceArriveWaypoint >=waypointDwellingTime)
+                if (timeSinceArriveWaypoint >= waypointDwellingTime)
                 {
-                mover.StartMoveAction(nextPosition);
+                    mover.StartMoveAction(nextPosition);
                 }
             }
         }
@@ -93,7 +98,7 @@ namespace RPG.Control
 
         private void CycleWaypoint()
         {
-            currentWaypointIndex=PatrolPath.GetNextWaypoint(currentWaypointIndex);
+            currentWaypointIndex = PatrolPath.GetNextWaypoint(currentWaypointIndex);
         }
 
         private Vector3 GetCurrentWaypoint()
