@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 10}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 28
+  controlID: 19
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 114
+  controlID: 121
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,8 +223,8 @@ MonoBehaviour:
     y: 0
     width: 272
     height: 722.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -322,8 +322,8 @@ MonoBehaviour:
     y: 0
     width: 971.2
     height: 405.6
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -485,7 +485,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -8020
+  m_LastSelectedObjectID: -31812
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -531,7 +531,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Game/Core
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 98240100
     m_LastClickedID: 74904
-    m_ExpandedIDs: 00000000405e0000425e0000445e0000465e0000485e00004a5e00004c5e00004e5e0000505e0000525e0000545e0000565e0000585e00005a5e00005c5e00005e5e0000
+    m_ExpandedIDs: 00000000e4610000e6610000e8610000ea610000ec610000ee610000f0610000f2610000f4610000f6610000f8610000fa610000fc610000fe6100000062000002620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,21 +572,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 120}
+    scrollPos: {x: 0, y: 63}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000405e0000425e0000445e0000465e0000485e00004a5e00004c5e00004e5e0000505e0000525e0000545e0000565e0000585e00005a5e00005c5e00005e5e0000
+    m_ExpandedIDs: ffffffff00000000e4610000e6610000e8610000ea610000ec610000ee610000f0610000f2610000f4610000f6610000f8610000fa610000fc610000006200000262000054620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SandBox2
-      m_OriginalName: SandBox2
+      m_Name: Core
+      m_OriginalName: Core
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 24000
+      m_UserData: 52430
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -715,23 +715,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f84affff
-      m_LastClickedID: -46344
-      m_ExpandedIDs: 3e4dffffb05cfffff06effffdc7bffff3a87ffffa8b2ffffccb3ffffd6c6ffffa6c8ffff20d1ffffead2ffffa0d4ffff10fbffff767a0000d88d0000
+      m_SelectedIDs: 54d5feff
+      m_LastClickedID: -76460
+      m_ExpandedIDs: dac7feff16ccfeff58d5feff9431ffff7033ffffb23bffffc64afffffe4cffff3852ffff3c57ffff8ecfffff52dcffff10fbfffff4fffffffc630000fcce0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Portal (1)
-        m_OriginalName: Portal (1)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -46344
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 2}
       m_SearchString: 
@@ -1091,7 +1091,7 @@ MonoBehaviour:
       floating: 1
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -217.59998, y: -157.6}
+      snapOffset: {x: -238.59998, y: -220.6}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: AINavigationOverlay
@@ -1136,9 +1136,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 24.817213, y: 2.9305387, z: 42.150093}
+    m_Target: {x: 10.997698, y: 6.180865, z: 32.76544}
     speed: 2
-    m_Value: {x: 24.817211, y: 2.9305387, z: 42.150093}
+    m_Value: {x: 10.997698, y: 6.180865, z: 32.76544}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1184,9 +1184,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.055026766, y: 0.9231989, z: -0.1443453, w: -0.3519328}
+    m_Target: {x: 0.12229038, y: 0.105493836, z: -0.013073296, w: 0.9867991}
     speed: 2
-    m_Value: {x: -0.05502632, y: 0.92319137, z: -0.14434412, w: -0.35192993}
+    m_Value: {x: 0.12228872, y: 0.105492406, z: -0.013073118, w: 0.9867857}
   m_Size:
     m_Target: 4.429346
     speed: 2
