@@ -1,10 +1,11 @@
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Core
 {
 
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         bool isDead = false;
         public bool IsDead()
@@ -20,10 +21,29 @@ namespace RPG.Core
             print(health);
             if (health == 0 && !isDead)
             {
-                GetComponent<Animator>().SetTrigger("die");
-                GetComponent<ActionScheduler>().CancelCurrentAction();
-                GetComponent<NavMeshAgent>().enabled = false;
-                isDead = true;
+                Die();
+            }
+        }
+
+        private void Die()
+        {
+            GetComponent<Animator>().SetTrigger("die");
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+            GetComponent<NavMeshAgent>().enabled = false;
+            isDead = true;
+        }
+
+        public object CaptureState()
+        {
+            return health;
+        }
+
+        public void RestoreState(object state)
+        {
+            health = (float)state;
+            if (health == 0 && !isDead)
+            {
+                Die();
             }
         }
     }
