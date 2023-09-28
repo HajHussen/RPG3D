@@ -75,6 +75,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 423694, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
   m_PrefabInstance: {fileID: 1062478590645801404}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1062478590645487280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 481036, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+  m_PrefabInstance: {fileID: 1062478590645801404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7496904543104300072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,6 +88,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5026983559206160117, guid: 237185dfd4260be4ab1b09ae77f47d47, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1894018491408104172, guid: 237185dfd4260be4ab1b09ae77f47d47, type: 3}
       propertyPath: uniqueIdentifier
       value: player
@@ -111,6 +120,14 @@ PrefabInstance:
       propertyPath: weaponOverride
       value: 
       objectReference: {fileID: 22100000, guid: 6a1b7ee3d47388045964902149261ab6, type: 2}
+    - target: {fileID: 3528549119116025808, guid: 237185dfd4260be4ab1b09ae77f47d47, type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 1062478590645487280}
+    - target: {fileID: 3528549119116025808, guid: 237185dfd4260be4ab1b09ae77f47d47, type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 1062478590645429938}
     - target: {fileID: 3528549119116025808, guid: 237185dfd4260be4ab1b09ae77f47d47, type: 3}
       propertyPath: timeBetweenAttacks
       value: 2
@@ -226,7 +243,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.4180455
+  m_Radius: 0.3
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.70902276, z: 0}
