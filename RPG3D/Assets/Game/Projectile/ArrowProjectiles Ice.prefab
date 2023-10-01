@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4122639697922764104, guid: b782cea336e126e479ca2457952b8ad9, type: 3}
+      propertyPath: projectileSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2406359589917350429, guid: b782cea336e126e479ca2457952b8ad9, type: 3}
       propertyPath: m_Name
       value: ArrowProjectiles Ice
