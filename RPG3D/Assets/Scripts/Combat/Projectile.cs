@@ -6,8 +6,10 @@ namespace RPG.Combat
     public class Projectile : MonoBehaviour
     {
         [SerializeField] float projectileSpeed = 2;
+        [SerializeField] float maxLifeTime = 10;
         [SerializeField] bool homingProjectile = false;
         [SerializeField] GameObject hitEffect = null;
+        [SerializeField] GameObject[] destroyOnHit = null;
 
         Health target = null;
 
@@ -35,6 +37,8 @@ namespace RPG.Combat
         {
             this.target = target;
             this.damage = damage;
+
+            Destroy(gameObject, maxLifeTime);
         }
 
         private Vector3 GetAimLocation()
@@ -48,7 +52,11 @@ namespace RPG.Combat
         {
             if (other.GetComponent<Health>() != target) return;
             target.TakeDamage(damage);
-            if (hitEffect != null) Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+            if (hitEffect != null)
+            {
+                Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+            }
+
             Destroy(gameObject);
         }
     }
